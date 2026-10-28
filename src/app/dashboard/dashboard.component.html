@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="dashboard">
+    <div class="header">
+      <div class="titulo">
+        <h2>Dashboard de Progresso</h2>
+      </div>
+      <div class="contador">
+        <div class="total">
+          <span class="total-label"><p>Total</p></span>
+          <span class="valor">{{ total }}</span>
+        </div>
+        <div class="concludos">
+          <span class="concluidos-label"><p>Concluídos</p></span>
+          <span class="valor">{{ concluidos }}</span>
+        </div>
+      </div>
+      <div class="progresso">
+        <div class="progresso-label-row">
+          <span class="concluido">Concluído</span>
+          <span class="percentual">{{ percentual }}%</span>
+        </div>
+        <div class="barra-progresso-row">
+          <progress class="barra-progresso" value="{{ percentualBarra }}"></progress>
+        </div>
+      </div>
+    </div>
+    <div class="mensagem">
+      <span class="alert" *ngIf="alert">{{ alert }}</span>
+      <span class="error" *ngIf="error">{{ error }}</span>
+    </div>
+    <form class="pesquisa">
+      <div class="item-pesquisa" >
+        <input type="text" placeholder="Pesquisar Tarefa">
+        <button class="bt_pesquisar"></button>
+      </div>
+      <div class="select1">
+        <label for="select1">Select 1</label>
+        <select id="select1">
+          <option>Opção 1</option>
+          <option>Opção 2</option>
+          <option>Opção 3</option>
+        </select>
+      </div>
+      <div class="select2">
+        <label for="select2">Select 2</label>
+        <select id="select2">
+          <option>Opção 1</option>
+          <option>Opção 2</option>
+          <option>Opção 3</option>
+        </select>
+      </div>
+      <div>
+        <button class="reset" type="reset">Resetar filtros</button>
+      </div>
+    </form>
+    <div class="form">
+      <form (ngSubmit)="adicionar()" class="div-form">
+        <div class="nova-descricao">
+          <input type="text" [(ngModel)]="descricao" name="descricao"
+            placeholder="Nova Tarefa">
+        </div>
+        <div class="div-concluido">
+          <label for="concluido" class="label-concluido">Concluído</label>
+          <input type="checkbox" [(ngModel)]="concluido" name="concluido" class="concluido-input">
+        </div>
+        <input type="date" [(ngModel)]="data" name="data" class="data-input">
+        <button type="submit" class="adicionar">Adicionar</button>
+      </form>
+    </div>
+    <div class="tarefas" *ngFor="let tarefa of tarefas">
+      <span class="descricao">{{ tarefa.descricao }}</span>
+      <span class="classificacao">{{ tarefa.classificacao }}</span>
+      <span class="data">{{ tarefa.data }}</span>
+      <input type="checkbox" [(ngModel)]="tarefa.concluido"
+          name="concluido" class="concluido"
+          (ngModelChange)="atualizaConcluido(tarefa.id!, $event)" >
+      <button type="button" class="delete" (click)="excluirTarefa(tarefa.id!)">X</button>
+    </div>
+  </div>
+</div>
