@@ -18,22 +18,36 @@
       "descricao": "testando alert temporário",
       "concluido": true,
       "data": "2026-07-15",
-      "classificacao": "",
+      "classificacao": "medio",
       "id": 8
     },
     {
       "descricao": "Testando o recarregar",
       "concluido": true,
       "data": "2026-09-14",
-      "classificacao": "",
+      "classificacao": "baixo",
       "id": 12
     },
     {
       "descricao": "Testando o progresso",
       "concluido": false,
       "data": "2026-10-15",
-      "classificacao": "",
+      "classificacao": "medio",
       "id": 13
+    },
+    {
+      "descricao": "Outro com urgencia",
+      "concluido": false,
+      "data": "2026-09-17",
+      "classificacao": "baixo",
+      "id": 14
+    },
+    {
+      "descricao": "Urgente",
+      "concluido": true,
+      "data": "2026-10-16",
+      "classificacao": "alto",
+      "id": 15
     }
   ]
 }

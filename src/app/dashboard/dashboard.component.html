@@ -59,6 +59,14 @@
           <input type="text" [(ngModel)]="descricao" name="descricao"
             placeholder="Nova Tarefa">
         </div>
+        <div>
+          <select class="nivel-classificacao" [(ngModel)]="classificacao" name="classificacao">
+            <option value="baixo">Baixo</option>
+            <option value="medio">Médio</option>
+            <option value="alto">Alto</option>
+            <option value="urgente">Urgente</option>
+          </select>
+        </div>
         <div class="div-concluido">
           <label for="concluido" class="label-concluido">Concluído</label>
           <input type="checkbox" [(ngModel)]="concluido" name="concluido" class="concluido-input">
@@ -69,7 +77,7 @@
     </div>
     <div class="tarefas" *ngFor="let tarefa of tarefas">
       <span class="descricao">{{ tarefa.descricao }}</span>
-      <span class="classificacao">{{ tarefa.classificacao }}</span>
+      <span class="classificacao" [ngClass]="tarefa.classificacao">{{ tarefa.classificacao }}</span>
       <span class="data">{{ tarefa.data }}</span>
       <input type="checkbox" [(ngModel)]="tarefa.concluido"
           name="concluido" class="concluido"

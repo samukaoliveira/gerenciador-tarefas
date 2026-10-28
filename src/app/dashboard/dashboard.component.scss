@@ -310,10 +310,28 @@
   font-size: 11px;
   max-height: 25px;
   width: 10%;
-  background: #c8beee;
   border-radius: 15px;
-  color: #6849d8;
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.baixo {
+  background: #eaeaeb;
+  color: #4b4b4b;
+}
+
+.medio {
+  background: #c4cbe2;
+  color: #496ad8;
+}
+
+.alto {
+  background: #c8beee;
+  color: #6849d8;
+}
+
+.urgente {
+  background: #a499d1;
+  color: #b41256;
 }
