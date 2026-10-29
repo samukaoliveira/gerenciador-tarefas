@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Tarefa } from '../models/tarefa';
+import { Classificacao, Tarefa } from '../models/tarefa';
 import { FormsModule } from '@angular/forms';
 import { DashboardService } from './dashboard.service';
 import { TipoMensagem } from '../models/tipomensagem';
@@ -15,13 +15,50 @@ export class DashboardComponent implements OnInit {
   descricao: string = '';
   concluido: boolean = false;
   data: Date = new Date();
-  classificacao: string = '';
+  classificacao: Classificacao = Classificacao.baixo;
   alert: string = "";
   error: string = "";
   total: number = 0;
   concluidos: number = 0;
   percentualBarra: number = 0;
   percentual: number = 0;
+  offset: number = 5;
+  tarefasVisiveis: Tarefa[] = [];
+
+  ordenacoes = [
+    {
+      nome: 'Descrição ASC',
+      comparator: (a: Tarefa, b: Tarefa): number =>
+        a.descricao.localeCompare(b.descricao, 'pt-BR')},
+    {
+      nome: 'Descrição DESC',
+      comparator: (a: Tarefa, b: Tarefa): number =>
+        b.descricao.localeCompare(a.descricao, 'pt-BR')},
+    {
+      nome: 'Classif. - Mais Baixa',
+      comparator: (a: Tarefa, b: Tarefa): number =>
+        this.pesoClassificacao(a.classificacao) - this.pesoClassificacao(b.classificacao)
+    },
+    {
+      nome: 'Classif. - Mais Urgente',
+      comparator: (a: Tarefa, b: Tarefa): number =>
+        this.pesoClassificacao(b.classificacao) - this.pesoClassificacao(a.classificacao)
+    }
+  ];
+
+  ordenacaoSelecionada = this.ordenacoes[0];
+
+  private pesoClassificacao(classificacao: Classificacao | string): number {
+    const pesos: Record<string, number> = {
+      baixo: 1,
+      medio: 2,
+      alto: 3,
+      urgente: 4
+    };
+
+    if (typeof classificacao === 'number') return classificacao;
+    return pesos[String(classificacao).toLocaleLowerCase('pt-BR')] ?? 0;
+  }
 
   constructor(private service: DashboardService) { }
 
@@ -114,7 +151,7 @@ export class DashboardComponent implements OnInit {
       t => t.concluido == true
     ).length;
     this.percentualBarra = this.concluidos / this.total;
-    this.percentual = this.percentualBarra * 100
+    this.percentual = Number((this.percentualBarra * 100).toFixed(2));
   }
 
   atualizaConcluido(id: number, concluido: boolean){
@@ -129,4 +166,13 @@ export class DashboardComponent implements OnInit {
         }
       })
   }
+
+
+
 }
+
+function toFixed(arg0: number, p0: number): number {
+  throw new Error('Function not implemented.');
+}
+
+

@@ -2,14 +2,14 @@
   "tarefas": [
     {
       "descricao": "asdf",
-      "concluido": false,
+      "concluido": true,
       "data": "2026-08-15",
       "classificacao": "urgente",
       "id": 1
     },
     {
       "descricao": "Mais uma",
-      "concluido": true,
+      "concluido": false,
       "data": "2026-08-15",
       "classificacao": "urgente",
       "id": 2
@@ -30,17 +30,10 @@
     },
     {
       "descricao": "Testando o progresso",
-      "concluido": false,
+      "concluido": true,
       "data": "2026-10-15",
       "classificacao": "medio",
       "id": 13
-    },
-    {
-      "descricao": "Outro com urgencia",
-      "concluido": false,
-      "data": "2026-09-17",
-      "classificacao": "baixo",
-      "id": 14
     },
     {
       "descricao": "Urgente",
@@ -48,6 +41,41 @@
       "data": "2026-10-16",
       "classificacao": "alto",
       "id": 15
+    },
+    {
+      "descricao": "Adiconando mais",
+      "concluido": true,
+      "data": "2026-08-14",
+      "classificacao": "medio",
+      "id": 16
+    },
+    {
+      "descricao": "Outra pra Paginação",
+      "concluido": false,
+      "data": "2026-09-14",
+      "classificacao": "urgente",
+      "id": 17
+    },
+    {
+      "descricao": "Outra pra Paginação",
+      "concluido": false,
+      "data": "2026-09-14",
+      "classificacao": "urgente",
+      "id": 18
+    },
+    {
+      "descricao": "Preciso fazer o stestes unitários",
+      "concluido": false,
+      "data": "2026-09-15",
+      "classificacao": "alto",
+      "id": 19
+    },
+    {
+      "descricao": "O Gpt refatorou",
+      "concluido": false,
+      "data": "2026-09-16",
+      "classificacao": "baixo",
+      "id": 20
     }
   ]
 }

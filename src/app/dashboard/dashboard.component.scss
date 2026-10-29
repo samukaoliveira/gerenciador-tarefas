@@ -192,16 +192,16 @@
   border: none;
 }
 
-.select1, .select2 {
+.select1, .itens-pagina {
   border: 1px solid  rgb(158, 157, 157);
   border-radius: 3px;
   height: 30px;
   width: 20%;
 }
 
-.select1 label, .select2 label {
+.select1 label, .itens-pagina label, .div-nivel-classificacao label {
   font-size: 10px;
-  width: 40px;
+  width: 35px;
   display: block;
   margin: -10px 0 0 10px;
   padding: 5px;
@@ -211,7 +211,19 @@
   align-items: center;
 }
 
-.select1 select, .select2 select {
+.select1 label {
+  width: 50px;
+}
+
+.div-nivel-classificacao label {
+  width: 55px;
+}
+
+.itens-pagina label {
+  width: 70px;
+}
+
+.select1 select, .itens-pagina select, .div-nivel-classificacao select {
   border: none;
   outline: none;
   box-shadow: none;
@@ -219,7 +231,7 @@
   width: 100%;
 }
 
-.select1 option, .select2 option {
+.select1 option, .itens-pagina option, .div-nivel-classificacao option {
   background: transparent;
   border: none;
   outline: none;
@@ -285,6 +297,13 @@
   margin-left: 10px;
 }
 
+.div-nivel-classificacao {
+  border: 1px solid  rgb(158, 157, 157);
+  border-radius: 3px;
+  height: 30px;
+  width: 100px;
+}
+
 .tarefas input[type="checkbox"], .form input[type="checkbox"] {
   width: 20px;
   height: 20px;
@@ -295,6 +314,7 @@
   margin-top: 3px;
   margin-left: 6px;
 }
+
 
 .delete {
   background: rgb(241, 24, 169);

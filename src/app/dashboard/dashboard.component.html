@@ -34,19 +34,22 @@
         <button class="bt_pesquisar"></button>
       </div>
       <div class="select1">
-        <label for="select1">Select 1</label>
-        <select id="select1">
-          <option>Opção 1</option>
-          <option>Opção 2</option>
-          <option>Opção 3</option>
+        <label for="select1">Ordenar por</label>
+        <select id="select1" name="ordenacaoSelecionada"
+          [(ngModel)]="ordenacaoSelecionada">
+          <option *ngFor="let ordenacao of ordenacoes" [ngValue]="ordenacao">
+            {{ ordenacao.nome }}
+          </option>
         </select>
       </div>
-      <div class="select2">
-        <label for="select2">Select 2</label>
-        <select id="select2">
-          <option>Opção 1</option>
-          <option>Opção 2</option>
-          <option>Opção 3</option>
+      <div class="itens-pagina">
+        <label for="itens-pagina">Itens por Página</label>
+        <select id="itens-pagina" name="offset"
+            [(ngModel)]="offset"
+            (ngModelChange)="carregarTarefas()">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
         </select>
       </div>
       <div>
@@ -60,12 +63,17 @@
             placeholder="Nova Tarefa">
         </div>
         <div>
-          <select class="nivel-classificacao" [(ngModel)]="classificacao" name="classificacao">
+        <div class="div-nivel-classificacao">
+          <label for="nivel-classificacao">Classificação</label>
+          <select class="nivel-classificacao"
+            [(ngModel)]="classificacao" name="classificacao"
+            (ngModelChange)="carregarTarefas()">
             <option value="baixo">Baixo</option>
             <option value="medio">Médio</option>
             <option value="alto">Alto</option>
             <option value="urgente">Urgente</option>
           </select>
+        </div>
         </div>
         <div class="div-concluido">
           <label for="concluido" class="label-concluido">Concluído</label>
@@ -75,7 +83,7 @@
         <button type="submit" class="adicionar">Adicionar</button>
       </form>
     </div>
-    <div class="tarefas" *ngFor="let tarefa of tarefas">
+    <div class="tarefas" *ngFor="let tarefa of tarefasVisiveis">
       <span class="descricao">{{ tarefa.descricao }}</span>
       <span class="classificacao" [ngClass]="tarefa.classificacao">{{ tarefa.classificacao }}</span>
       <span class="data">{{ tarefa.data }}</span>
@@ -83,6 +91,12 @@
           name="concluido" class="concluido"
           (ngModelChange)="atualizaConcluido(tarefa.id!, $event)" >
       <button type="button" class="delete" (click)="excluirTarefa(tarefa.id!)">X</button>
+
     </div>
+    <app-paginacao
+      [itens]="tarefas"
+      [itensPorPagina]="offset"
+      [comparator]="ordenacaoSelecionada.comparator"
+      (itensVisiveisChange)="tarefasVisiveis = $event"></app-paginacao>
   </div>
 </div>

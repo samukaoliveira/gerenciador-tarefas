@@ -9,13 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
+import { PaginacaoComponent } from './paginacao/paginacao.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     DashboardComponent,
-    FooterComponent
+    FooterComponent,
+    PaginacaoComponent
   ],
   imports: [
     BrowserModule,

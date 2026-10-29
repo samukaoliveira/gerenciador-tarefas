@@ -1,0 +1,37 @@
+.paginacao {
+  margin-top: 20px;
+  display: flex;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 20px;
+  color: silver;
+  gap: 15px;
+  width: 200px;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: #496ad8;
+}
+
+.primeiro, .prev, .pagina p, .next, .ultimo {
+  color: #496ad8;
+}
+
+.primeiro:not(:disabled), .prev:not(:disabled), .next:not(:disabled), .ultimo:not(:disabled) {
+  &:hover {
+    color: #b41256;
+    cursor: pointer;
+  }
+}
+
+.primeiro:disabled, .prev:disabled, .next:disabled, .ultimo:disabled {
+  color: silver;
+  cursor: default;
+}
+
+.paginacao button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+}
+
+

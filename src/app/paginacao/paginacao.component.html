@@ -1,0 +1,7 @@
+<div class="paginacao">
+  <button class="primeiro" type="button" [disabled]="!podePrimeiro" (click)="firstPage()">&lt;&lt;</button>
+  <button class="prev" type="button" [disabled]="!podePrev" (click)="prevPage()">&lt;</button>
+  <span class="pagina"><p>{{ paginaAtual + 1 }}</p></span>
+  <button class="next" type="button" [disabled]="!podeNext" (click)="nextPage()">&gt;</button>
+  <button class="ultimo" type="button" [disabled]="!podeUltimo" (click)="lastPage()">&gt;&gt;</button>
+</div>
